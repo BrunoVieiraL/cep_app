@@ -1,6 +1,5 @@
 import 'package:cep_app/views/map_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'views/home_page.dart';
 
 void main() {
@@ -12,11 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/homePage',
       routes: {
-        '/homePage': (context) => HomePage(),
+        '/homePage': (context) => const HomePage(),
         '/mapsPage': (context) => const MapsPage(),
       },
     );
