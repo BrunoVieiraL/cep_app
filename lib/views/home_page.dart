@@ -87,8 +87,19 @@ class _HomePageState extends State<HomePage> {
                                   );
                                   textController.clear();
                                 } else {
-                                  if (formatCEP.isEmpty) {
-                                    //TODO checar se já existe no banco
+                                  var checkExistonDB = await AddressDataBase
+                                      .instance
+                                      .getAllCEP();
+                                  var test = '';
+                                  for (var i = 0;
+                                      i < checkExistonDB.length;
+                                      i++) {
+                                    test = checkExistonDB
+                                        .elementAt(i)
+                                        .cep!
+                                        .replaceFirst('-', ''.trim());
+                                  }
+                                  if (formatCEP == test) {
                                     textController.clear();
                                     Navigator.of(context).pop();
                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -109,6 +120,7 @@ class _HomePageState extends State<HomePage> {
                                         duration: Duration(seconds: 5),
                                       ),
                                     );
+                                    setState(() {});
                                   }
                                 }
                               }
