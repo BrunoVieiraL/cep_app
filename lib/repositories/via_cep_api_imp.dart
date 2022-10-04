@@ -1,11 +1,11 @@
 import 'package:cep_app/models/address_model.dart';
 import 'package:dio/dio.dart';
 
-import 'via_cep_api.dart';
+import 'get_api_repository.dart';
 
-class ViaCepApiImp implements ViaCepApi {
+class ViaCepApiRepositoryImp implements GetApiRepository {
   @override
-  getCepInfo(String cep) async {
+  getInfo(String cep) async {
     final dio = Dio();
     try {
       final result = await dio.get('https://viacep.com.br/ws/$cep/json/');
