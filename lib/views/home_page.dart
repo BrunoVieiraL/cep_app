@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: const Text('Lista de CEPs'),
         actions: [
           TextButton(
             style: TextButton.styleFrom(foregroundColor: Colors.white),
@@ -157,12 +157,10 @@ class _HomePageState extends State<HomePage> {
                       children: snapshot.data!.map(
                         (address) {
                           return ListTile(
-                            leading: Text(address.uf!),
                             title: Text(address.cep!),
                             subtitle: Text(address.logradouro!),
                             trailing: Text(address.bairro!),
                             onTap: () {
-                              Navigator.of(context).pushNamed('/mapsPage', arguments: address);
                               Get.toNamed('/mapsPage', arguments: address);
                             },
                             onLongPress: () {
