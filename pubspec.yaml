@@ -44,7 +44,7 @@ dependencies:
   get: ^4.6.5
   geolocator: ^9.0.2
   google_maps_flutter: ^2.2.1
-  flutter_config: ^2.0.0
+  flutter_polyline_points: ^1.0.0
 
 dev_dependencies:
   flutter_test:

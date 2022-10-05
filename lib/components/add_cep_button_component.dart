@@ -1,11 +1,12 @@
-import 'package:cep_app/controllers/controller.dart';
+import 'package:cep_app/controllers/repository_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../database/database.dart';
 import '../models/address_model.dart';
 
 class AddCEPButtonComponent extends StatefulWidget {
   final TextEditingController textController;
-  final Controller controller;
+  final RepositoryController controller;
   const AddCEPButtonComponent(
       {super.key, required this.textController, required this.controller});
 
@@ -29,7 +30,7 @@ class _AddCEPButtonComponentState extends State<AddCEPButtonComponent> {
           context: context,
           builder: (context) => Dialog(
             child: SizedBox(
-              height: 300,
+              height: 120,
               width: 300,
               child: Column(
                 children: [
@@ -63,7 +64,7 @@ class _AddCEPButtonComponentState extends State<AddCEPButtonComponent> {
                         } else {
                           AddressModel infoCep = await widget
                               .controller.repository
-                              .getCepInfo(formatCEP);
+                              .getInfo(formatCEP);
                           if (infoCep.cep == null && mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
@@ -84,7 +85,7 @@ class _AddCEPButtonComponentState extends State<AddCEPButtonComponent> {
                             }
                             if (formatCEP == test && mounted) {
                               widget.textController.clear();
-                              Navigator.of(context).pop();
+                              Get.back();
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content:
@@ -95,7 +96,7 @@ class _AddCEPButtonComponentState extends State<AddCEPButtonComponent> {
                             } else {
                               AddressDataBase.instance.addAddress(infoCep);
                               widget.textController.clear();
-                              Navigator.of(context).pop();
+                              Get.back();
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('CEP Adicionado a lista'),

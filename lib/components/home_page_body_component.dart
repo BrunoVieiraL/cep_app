@@ -31,9 +31,10 @@ class _HomePageBodyComponentState extends State<HomePageBodyComponent> {
                       style: TextStyle(fontSize: 20),
                     ),
                   )
-                : ListView(
+                : ListView.builder(
                     shrinkWrap: true,
-                    children: snapshot.data!.map(
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) => snapshot.data!.map(
                       (address) {
                         return ListTile(
                           leading: Text(address.uf!),
@@ -42,7 +43,7 @@ class _HomePageBodyComponentState extends State<HomePageBodyComponent> {
                           trailing: Text(address.bairro!),
                           onTap: () {
                             Navigator.of(context)
-                                .pushNamed('/mapPage', arguments: address);
+                                .pushNamed('/mapsPage', arguments: address);
                           },
                           onLongPress: () {
                             AddressDataBase.instance
@@ -51,7 +52,7 @@ class _HomePageBodyComponentState extends State<HomePageBodyComponent> {
                           },
                         );
                       },
-                    ).toList(),
+                    ).elementAt(index),
                   );
           },
         ),
