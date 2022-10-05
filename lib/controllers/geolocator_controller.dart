@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import '../models/address_model.dart';
 import '../models/geocode_model.dart';
 
@@ -29,6 +28,9 @@ class GeolocatorController extends ChangeNotifier {
 
   getPosition() async {
     try {
+      Position position = await currentPosition();
+      userLat = position.latitude;
+      userLong = position.longitude;
       GeocodeModel geocode = await geocodeApiImp.getInfo(args.cep!);
       Location geocodeLocation =
           geocode.results!.elementAt(0).geometry!.location as Location;
