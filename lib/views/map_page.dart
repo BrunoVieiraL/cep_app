@@ -71,9 +71,6 @@ class _MapsPageState extends State<MapsPage> {
           info = directions;
           setState(() {});
         },
-        onCameraIdle: () {
-          setState(() {});
-        },
       ),
     );
   }
