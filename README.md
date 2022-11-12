@@ -1,16 +1,9 @@
-# cep_app
+# cep_app<p>
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+My post on linkedin showing the app: https://www.linkedin.com/posts/bruno-vieiral_googlemaps-api-flutter-activity-6983473257257578497-sAbZ?utm_source=share&utm_medium=member_desktop <p>
+ 
+  
+  
+![Screenshot_1666971870](https://user-images.githubusercontent.com/73727609/198679065-e0a45071-4c6f-4c61-9cda-598e39065cc6.png)
+![Screenshot_1666971945](https://user-images.githubusercontent.com/73727609/198679067-52e85e9b-c030-4d7f-9882-8299ca94f7d0.png)
+![Screenshot_1666971948](https://user-images.githubusercontent.com/73727609/198679074-160baff6-6288-4921-89da-038273b3706d.png)
