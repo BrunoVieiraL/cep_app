@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 class AddressModel {
   final String? cep;
   final String? logradouro;

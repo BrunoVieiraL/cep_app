@@ -40,18 +40,25 @@ class _MapsPageState extends State<MapsPage> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text('CEP: ${args.cep!} '),
+        title: Text('CEP: ${args.cep!}'),
       ),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
           target:
               LatLng(geolocatorController.latCep, geolocatorController.longCep),
-          zoom: 20,
+          zoom: 13,
         ),
         onMapCreated: geolocatorController.onMapCreated,
         markers: <Marker>{
           origin,
           destination,
+        },
+        onCameraMoveStarted: () async {
+          setState(() {});
+          final directions = await DirectionsRepository().getDirections(
+              origin: origin.position, destination: destination.position);
+          info = directions;
+          setState(() {});
         },
         polylines: <Polyline>{
           if (info != null)
@@ -63,13 +70,6 @@ class _MapsPageState extends State<MapsPage> {
                   .map((e) => LatLng(e.latitude, e.longitude))
                   .toList(),
             ),
-        },
-        onCameraMoveStarted: () async {
-          setState(() {});
-          final directions = await DirectionsRepository().getDirections(
-              origin: origin.position, destination: destination.position);
-          info = directions;
-          setState(() {});
         },
       ),
     );
